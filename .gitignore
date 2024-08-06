@@ -8,7 +8,6 @@
 !/.yarn/cache
 #/.pnp.*
 
-/dist/
 /docs/
 /node_modules/
 
