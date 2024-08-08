@@ -11,18 +11,22 @@ export class Player extends Group {
 			left: XRController;
 			right: XRController;
 		};
+		localSpace: Group;
 	} = {
 		head: null,
 		controllers: null,
+		localSpace: null,
 	};
 
 	constructor() {
 		super();
+		this[PRIVATE].localSpace = new Group();
+		this.add(this[PRIVATE].localSpace);
 		this[PRIVATE].head = new Object3D();
-		this.add(this[PRIVATE].head);
+		this[PRIVATE].localSpace.add(this[PRIVATE].head);
 		this[PRIVATE].controllers = {
-			left: new XRController('left', this),
-			right: new XRController('right', this),
+			left: new XRController('left', this[PRIVATE].localSpace),
+			right: new XRController('right', this[PRIVATE].localSpace),
 		};
 	}
 
@@ -42,9 +46,21 @@ export class Player extends Group {
 		return this[PRIVATE].head;
 	}
 
+	get yOffset() {
+		return this[PRIVATE].localSpace.position.y;
+	}
+
+	set yOffset(yOffset: number) {
+		this[PRIVATE].localSpace.position.y = yOffset;
+	}
+
+	get localSpace() {
+		return this[PRIVATE].localSpace;
+	}
+
 	updateMatrixWorld(force?: boolean): void {
 		super.updateMatrixWorld(force);
-		this[PRIVATE].head.updateMatrixWorld(force);
+		this[PRIVATE].localSpace.updateMatrixWorld(force);
 	}
 
 	update(xrManager: WebXRManager) {

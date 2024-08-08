@@ -9,11 +9,11 @@ export class XRController extends Group {
         raySpace: new Group(),
         gamepad: null,
     };
-    constructor(handedness, player) {
+    constructor(handedness, parent) {
         super();
-        player.add(this);
+        parent.add(this);
         this[PRIVATE].handedness = handedness;
-        player.add(this[PRIVATE].raySpace);
+        parent.add(this[PRIVATE].raySpace);
     }
     get connected() {
         return this[PRIVATE].connected;

@@ -103,7 +103,7 @@ export class Core {
 	private _setupPlayerSpace() {
 		this.player = new Player();
 		this.scene.add(this.player);
-		this.player.add(this.inlineCamera);
+		this.player.localSpace.add(this.inlineCamera);
 	}
 
 	private _initECS() {

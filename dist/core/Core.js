@@ -82,7 +82,7 @@ export class Core {
     _setupPlayerSpace() {
         this.player = new Player();
         this.scene.add(this.player);
-        this.player.add(this.inlineCamera);
+        this.player.localSpace.add(this.inlineCamera);
     }
     _initECS() {
         this._ecsyWorld = new EcsyWorld();

@@ -9,6 +9,7 @@ export declare class Player extends Group {
             left: XRController;
             right: XRController;
         };
+        localSpace: Group;
     };
     constructor();
     get controllers(): {
@@ -21,6 +22,9 @@ export declare class Player extends Group {
      * objects / audio listeners.
      */
     get head(): Object3D<import("three").Event>;
+    get yOffset(): number;
+    set yOffset(yOffset: number);
+    get localSpace(): Group;
     updateMatrixWorld(force?: boolean): void;
     update(xrManager: WebXRManager): void;
 }

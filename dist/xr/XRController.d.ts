@@ -10,7 +10,7 @@ export declare class XRController extends Group {
         raySpace: THREE.Object3D;
         gamepad: GamepadWrapper;
     };
-    constructor(handedness: XRHandedness, player: Group);
+    constructor(handedness: XRHandedness, parent: Group);
     get connected(): boolean;
     get handedness(): XRHandedness;
     get gamepad(): GamepadWrapper;
