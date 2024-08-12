@@ -1,5 +1,6 @@
-import { Group, Object3D, WebXRManager } from 'three';
+import { Group, Object3D } from 'three';
 import { XRController } from './XRController';
+import { WebXRManager } from 'three/src/renderers/webxr/WebXRManager';
 export declare const PRIVATE: unique symbol;
 export declare class Player extends Group {
     /** @ignore */
@@ -21,10 +22,10 @@ export declare class Player extends Group {
      * Accurate source for player head transform, can be used to attach game
      * objects / audio listeners.
      */
-    get head(): Object3D<import("three").Event>;
+    get head(): Object3D<import("three").Object3DEventMap>;
     get yOffset(): number;
     set yOffset(yOffset: number);
-    get localSpace(): Group;
+    get localSpace(): Group<import("three").Object3DEventMap>;
     updateMatrixWorld(force?: boolean): void;
     update(xrManager: WebXRManager): void;
 }

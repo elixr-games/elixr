@@ -13,9 +13,6 @@ ___________ __   __ ____  _____________
 /*                                 3D Library                                 */
 /* -------------------------------------------------------------------------- */
 export * from './graphics/CustomTHREE';
-export { CurvedRaycaster } from './graphics/CurvedRaycaster';
-export { GLTFModelLoader } from './graphics/GLTFModelLoader';
-export { MeshRenderer } from './graphics/meshes/MeshRendererComponent';
 
 /* -------------------------------------------------------------------------- */
 /*                           Entity Component System                          */
@@ -53,11 +50,6 @@ export {
 /*                                    Enums                                   */
 /* -------------------------------------------------------------------------- */
 export { JOYSTICK_STATES, HANDEDNESS, SESSION_MODE } from './core/enums';
-
-/* -------------------------------------------------------------------------- */
-/*                                 Geometries                                 */
-/* -------------------------------------------------------------------------- */
-export { CurveTubeGeometry } from './graphics/geometries/CurveTubeGeometry';
 
 console.log(FIGLET + ` v${ELIXR_VERSION}`);
 console.log(

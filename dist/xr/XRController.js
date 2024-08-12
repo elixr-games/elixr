@@ -1,5 +1,5 @@
-import { GamepadWrapper } from 'gamepad-wrapper';
 import { Group } from 'three';
+import { GamepadWrapper } from 'gamepad-wrapper';
 export const PRIVATE = Symbol('@elixr/xr/xr-controller');
 export class XRController extends Group {
     /** @ignore */

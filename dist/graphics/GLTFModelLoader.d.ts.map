@@ -1,1 +1,0 @@
-{"version":3,"file":"GLTFModelLoader.d.ts","sourceRoot":"","sources":["../../src/graphics/GLTFModelLoader.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,UAAU,EAAE,MAAM,0CAA0C,CAAC;AAEtE,OAAO,EAAE,KAAK,EAAE,MAAM,eAAe,CAAC;AAEtC,qBAAa,eAAe;IAC3B,OAAO,CAAC,MAAM,CAAC,SAAS,CAAa;WAEvB,IAAI,CAAC,QAAQ,EAAE,KAAK,CAAC,aAAa;WAelC,WAAW;CAMzB"}

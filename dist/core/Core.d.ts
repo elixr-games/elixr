@@ -33,7 +33,7 @@ export declare class Core {
     globals: Map<string, any>;
     player: Player;
     get initialized(): boolean;
-    get playerHead(): THREE.Object3D<THREE.Event>;
+    get playerHead(): THREE.Object3D<THREE.Object3DEventMap>;
     /** Enum value indicating the current XRSessionMode */
     get sessionMode(): SESSION_MODE;
     static init(sceneContainer: HTMLElement): Promise<Core>;

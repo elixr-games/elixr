@@ -1,5 +1,7 @@
-import { Group, Matrix4, Object3D, WebXRManager } from 'three';
+import { Group, Matrix4, Object3D } from 'three';
 import { PRIVATE as XRCONTROLLER_PRIVATE, XRController } from './XRController';
+
+import { WebXRManager } from 'three/src/renderers/webxr/WebXRManager';
 
 export const PRIVATE = Symbol('@elixr/xr/player');
 

@@ -1,5 +1,6 @@
+import { Group, Object3D } from 'three';
+
 import { GamepadWrapper } from 'gamepad-wrapper';
-import { Group } from 'three';
 
 export const PRIVATE = Symbol('@elixr/xr/xr-controller');
 
@@ -8,7 +9,7 @@ export class XRController extends Group {
 	[PRIVATE]: {
 		handedness: XRHandedness;
 		connected: boolean;
-		raySpace: THREE.Object3D;
+		raySpace: Object3D;
 		gamepad: GamepadWrapper;
 	} = {
 		handedness: null,

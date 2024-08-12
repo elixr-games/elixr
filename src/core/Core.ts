@@ -2,8 +2,6 @@ import { Attributes, World as EcsyWorld, Entity } from 'ecsy';
 import { GameComponentConstructor, SystemConfig } from './GameComponent';
 import { GameSystem, GameSystemConstructor } from './GameSystem';
 
-import { GLTFModelLoader } from '../graphics/GLTFModelLoader';
-import { MeshRenderer } from '../graphics/meshes/MeshRendererComponent';
 import { Player } from '../xr/Player';
 import { SESSION_MODE } from './enums';
 import { THREE } from '../graphics/CustomTHREE';
@@ -87,8 +85,6 @@ export class Core {
 
 		this._setupPlayerSpace();
 
-		GLTFModelLoader.init(this.renderer);
-
 		sceneContainer.appendChild(this.renderer.domElement);
 		this._setupRenderLoop();
 	}
@@ -125,7 +121,7 @@ export class Core {
 		} as THREE.WebGLRendererParameters);
 		this.renderer.setPixelRatio(window.devicePixelRatio);
 		this.renderer.setSize(window.innerWidth, window.innerHeight);
-		this.renderer.outputEncoding = THREE.sRGBEncoding;
+		this.renderer.outputColorSpace = THREE.SRGBColorSpace;
 		this.renderer.xr.enabled = true;
 
 		this.inlineCamera.position.set(0, 1.7, 0);
@@ -139,7 +135,6 @@ export class Core {
 		window.addEventListener('resize', onWindowResize, false);
 
 		this._threeScene = new THREE.Scene();
-		this.registerGameComponent(MeshRenderer);
 	}
 
 	private _setupRenderLoop() {
