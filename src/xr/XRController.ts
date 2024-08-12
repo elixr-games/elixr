@@ -1,10 +1,27 @@
-import { Group, Object3D } from 'three';
+import { Group, Object3D, Object3DEventMap } from 'three';
 
 import { GamepadWrapper } from 'gamepad-wrapper';
 
 export const PRIVATE = Symbol('@elixr/xr/xr-controller');
 
-export class XRController extends Group {
+interface ConnectedEventData {
+	type: 'connected';
+	data: {
+		inputSource: XRInputSource;
+		gamepad: GamepadWrapper;
+	};
+}
+
+interface DisconnectedEventData {
+	type: 'disconnected';
+}
+
+type ExtendedEventMap = Object3DEventMap & {
+	connected: ConnectedEventData;
+	disconnected: DisconnectedEventData;
+};
+
+export class XRController extends Group<ExtendedEventMap> {
 	/** @ignore */
 	[PRIVATE]: {
 		handedness: XRHandedness;
@@ -91,12 +108,24 @@ export class XRController extends Group {
 
 	connect(inputSource: XRInputSource) {
 		this[PRIVATE].gamepad = new GamepadWrapper(inputSource.gamepad);
+		const event: ConnectedEventData = {
+			type: 'connected',
+			data: {
+				inputSource,
+				gamepad: this[PRIVATE].gamepad,
+			},
+		};
+		this.dispatchEvent(event);
 	}
 
 	disconnect() {
 		this.visible = false;
 		this[PRIVATE].raySpace.visible = false;
 		this[PRIVATE].gamepad = null;
+		const event: DisconnectedEventData = {
+			type: 'disconnected',
+		};
+		this.dispatchEvent(event);
 	}
 
 	updateMatrixWorld(force?: boolean): void {

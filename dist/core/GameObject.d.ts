@@ -1,7 +1,7 @@
 import { GameComponent, GameComponentConstructor } from './GameComponent';
 import { Entity } from 'ecsy';
 import { THREE } from '../graphics/CustomTHREE';
-export declare type ExtendedEntity = Entity & {
+export type ExtendedEntity = Entity & {
     gameObject: GameObject;
 };
 export declare enum PrimitiveType {

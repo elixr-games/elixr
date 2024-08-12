@@ -64,11 +64,23 @@ export class XRController extends Group {
     }
     connect(inputSource) {
         this[PRIVATE].gamepad = new GamepadWrapper(inputSource.gamepad);
+        const event = {
+            type: 'connected',
+            data: {
+                inputSource,
+                gamepad: this[PRIVATE].gamepad,
+            },
+        };
+        this.dispatchEvent(event);
     }
     disconnect() {
         this.visible = false;
         this[PRIVATE].raySpace.visible = false;
         this[PRIVATE].gamepad = null;
+        const event = {
+            type: 'disconnected',
+        };
+        this.dispatchEvent(event);
     }
     updateMatrixWorld(force) {
         super.updateMatrixWorld(force);
