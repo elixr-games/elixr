@@ -43,7 +43,6 @@ export class Player extends Group {
     }
     updateMatrixWorld(force) {
         super.updateMatrixWorld(force);
-        this[PRIVATE].localSpace.updateMatrixWorld(force);
     }
     update(xrManager) {
         const session = xrManager.getSession();

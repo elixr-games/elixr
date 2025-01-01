@@ -62,7 +62,6 @@ export class Player extends Group {
 
 	updateMatrixWorld(force?: boolean): void {
 		super.updateMatrixWorld(force);
-		this[PRIVATE].localSpace.updateMatrixWorld(force);
 	}
 
 	update(xrManager: WebXRManager) {

@@ -130,6 +130,5 @@ export class XRController extends Group<ExtendedEventMap> {
 
 	updateMatrixWorld(force?: boolean): void {
 		super.updateMatrixWorld(force);
-		this[PRIVATE].raySpace.updateMatrixWorld(force);
 	}
 }

@@ -84,7 +84,6 @@ export class XRController extends Group {
     }
     updateMatrixWorld(force) {
         super.updateMatrixWorld(force);
-        this[PRIVATE].raySpace.updateMatrixWorld(force);
     }
 }
 //# sourceMappingURL=XRController.js.map
