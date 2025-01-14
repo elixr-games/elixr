@@ -3,6 +3,5 @@ import { acceleratedRaycast, computeBoundsTree, disposeBoundsTree, } from 'three
 BufferGeometry.prototype.computeBoundsTree = computeBoundsTree;
 BufferGeometry.prototype.disposeBoundsTree = disposeBoundsTree;
 Mesh.prototype.raycast = acceleratedRaycast;
-export * from 'three/src/Three.js';
 export * as THREE from 'three';
 //# sourceMappingURL=CustomTHREE.js.map
